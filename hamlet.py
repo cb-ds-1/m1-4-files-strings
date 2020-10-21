@@ -1,7 +1,7 @@
 
 import os
 
-def mentionned(self):
+def mentionned():
     f = open('data/hamlet.txt', 'r')
     txt = f.read()
     f.close()
