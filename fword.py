@@ -120,18 +120,18 @@ def check_for(file_path, words):
 Returns a set containing all unique words in the text file provided
 """
 def unique_words_in(file):
-    lines = []
     unique_words = set()
-#     Regex to match
-    words_regex = re.compile("[a-zA-Z0-9]+")
+#     Regex to match lowercase, uppercase, and alphanumerical words only
     try:
-        lines = get_all_lines_in_file(file)
+#         this returns the file as an array of list of words (one line = 1 list of words)
+#         [[word, word], [word, word]]
+        lines = get_all_lines_in_file_as_array_of_words_only(file)
+        for line in lines:
+            for word in line: unique_words.add(word)
+        return unique_words
     except Exception as e:
         print(e)
         return None
-    for line in lines:
-        for word in words_regex.findall(line): unique_words.add(word)
-    return unique_words
     
 
 """
